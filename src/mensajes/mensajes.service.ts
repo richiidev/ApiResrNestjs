@@ -15,6 +15,10 @@ export class MensajesService {
      getAll() {
         return  this.mensajeRepository.find();
     }
+    getById(idMensaje: any){
+
+        return  this.mensajeRepository.findByIds(idMensaje);
+    }
     async createMensaje(mensajeNuevo: CreateMensajeDto): Promise<Mensaje> {
         const nuevo = new Mensaje();
         nuevo.mensaje = mensajeNuevo.mensaje;

@@ -1,7 +1,7 @@
 import { Body, Controller, Delete, Get, HttpStatus, Param, Post, Put, Res } from '@nestjs/common';
 import { CreateMensajeDto } from './dto/create-mensaje-dto';
 import { MensajesService } from './mensajes.service';
-
+ 
 @Controller()
 export class MensajesController {
 
@@ -26,6 +26,11 @@ export class MensajesController {
          } 
              
          )            
+    }
+
+    @Get(':id')
+    getByIdMensaje(@Param('id') id: string){
+        return this.mensajesService.getById(id);
     }
 
   
